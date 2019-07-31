@@ -14,11 +14,13 @@ const { spaceId, accessToken } = process.env;
 module.exports = {
   /* Your site config here */
   plugins: [
+    "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-contentful",
       options: {
         spaceId,
-        accessToken
+        accessToken,
+        downloadLocal: true,
       }
     }
   ]

@@ -1,3 +1,26 @@
-import React from "react"
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
-export default () => <div>Hello world!</div>
+const HomePage = () => (
+  <StaticQuery
+    query={graphql`
+      query HomePage {
+        contentfulHomePage {
+          title
+        }
+      }
+    `}
+    render={({
+      contentfulHomePage: 
+      {
+        title
+      }
+    }) => (
+      <>
+        <h1>{title}</h1>
+      </>
+    )}
+  />
+);
+
+export default HomePage;
